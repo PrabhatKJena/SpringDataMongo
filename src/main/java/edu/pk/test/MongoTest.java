@@ -19,15 +19,19 @@ public class MongoTest {
 
             // inserting new document into collection [like insert new record into table]
             BasicDBObject newDbObject = new BasicDBObject();
-            newDbObject.put("_id", "ID001"); newDbObject.put("name", "Spring In Action");
-            newDbObject.put("category", "Technical"); newDbObject.put("author", "Craig Walls");
+            newDbObject.put("_id", "ID001");
+            newDbObject.put("name", "Spring In Action");
+            newDbObject.put("category", "Technical");
+            newDbObject.put("author", "Craig Walls");
             newDbObject.put("price", "550");
             dbCollection.insert(newDbObject);
 
             // inserting new document into collection [like insert new record into table]
             newDbObject = new BasicDBObject();
-            newDbObject.put("_id", "ID002"); newDbObject.put("name", "Think In Java");
-            newDbObject.put("category", "Technical"); newDbObject.put("author", "Bruce Eckel");
+            newDbObject.put("_id", "ID002");
+            newDbObject.put("name", "Think In Java");
+            newDbObject.put("category", "Technical");
+            newDbObject.put("author", "Bruce Eckel");
             newDbObject.put("price", "450");
             dbCollection.insert(newDbObject);
 
@@ -49,7 +53,10 @@ public class MongoTest {
             System.out.println(e.getMessage());
         } finally {
             // closing client [like closing connection in JDBC]
-            mongoClient.close();
+            if (mongoClient != null)
+                mongoClient.close();
         }
+
+        // Adding comment to test SSH from IntelliJ
     }
 }
